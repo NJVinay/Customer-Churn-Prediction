@@ -1,1 +1,1 @@
-window.API_BASE_URL = "http://localhost:8000";
+window.API_BASE_URL = "https://churn-api-6rv9.onrender.com";

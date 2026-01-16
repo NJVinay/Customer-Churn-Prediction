@@ -3,5 +3,6 @@ __pycache__/
 .venv/
 .env
 reports/
+catboost_info/
 backend/.venv/
 backend/__pycache__/

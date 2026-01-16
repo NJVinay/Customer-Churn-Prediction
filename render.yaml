@@ -10,3 +10,5 @@ services:
         value: 3.12.8
       - key: MODEL_PATH
         value: backend/models/churn_model.joblib
+      - key: CORS_ORIGINS
+        value: https://customer-churn-prediction-3fij.onrender.com
