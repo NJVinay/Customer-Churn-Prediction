@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: churn-api
+    env: python
+    plan: free
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: uvicorn backend.app:app --host 0.0.0.0 --port 10000
+    envVars:
+      - key: MODEL_PATH
+        value: backend/models/churn_model.joblib
+
+  - type: static
+    name: churn-ui
+    buildCommand: ""
+    staticPublishPath: frontend

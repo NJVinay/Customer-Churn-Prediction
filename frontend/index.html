@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Churn Signal - Customer Churn Prediction</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="hero">
+        <div class="hero__intro">
+          <p class="hero__tag">Churn Signal</p>
+          <h1>Predict customer churn with a fast, clean signal.</h1>
+          <p class="hero__sub">
+            Use the helper-friendly form to build a customer profile and see a
+            churn risk signal in seconds.
+          </p>
+          <div class="hero__stats">
+            <div>
+              <span>Model</span>
+              <strong>Stacking Ensemble</strong>
+            </div>
+            <div>
+              <span>Pipeline</span>
+              <strong>SMOTE + Cost Threshold</strong>
+            </div>
+            <div>
+              <span>Delivery</span>
+              <strong>FastAPI + Static Host</strong>
+            </div>
+          </div>
+        </div>
+        <div class="hero__panel">
+          <div class="form-layout">
+            <form id="churn-form" class="form">
+              <div class="form__grid">
+                <label>
+                  Gender
+                  <select name="gender" required>
+                    <option value="Female">Female</option>
+                    <option value="Male">Male</option>
+                  </select>
+                </label>
+                <label>
+                  Senior Citizen
+                  <select name="seniorCitizen" required>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                  </select>
+                </label>
+                <label>
+                  Partner
+                  <select name="partner" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                  </select>
+                </label>
+                <label>
+                  Dependents
+                  <select name="dependents" required>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                  </select>
+                </label>
+                <label>
+                  Tenure (months)
+                  <input
+                    type="number"
+                    name="tenure"
+                    min="0"
+                    placeholder="e.g., 24"
+                    required
+                  />
+                </label>
+                <label>
+                  Phone Service
+                  <select name="phoneService" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                  </select>
+                </label>
+                <label>
+                  Multiple Lines
+                  <select name="multipleLines" required>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No phone service">No phone service</option>
+                  </select>
+                </label>
+                <label>
+                  Internet Service
+                  <select name="internetService" required>
+                    <option value="Fiber optic">Fiber optic</option>
+                    <option value="DSL">DSL</option>
+                    <option value="No">No</option>
+                  </select>
+                </label>
+                <label>
+                  Online Security
+                  <select name="onlineSecurity" required>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No internet service">No internet service</option>
+                  </select>
+                </label>
+                <label>
+                  Online Backup
+                  <select name="onlineBackup" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                    <option value="No internet service">No internet service</option>
+                  </select>
+                </label>
+                <label>
+                  Device Protection
+                  <select name="deviceProtection" required>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No internet service">No internet service</option>
+                  </select>
+                </label>
+                <label>
+                  Tech Support
+                  <select name="techSupport" required>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No internet service">No internet service</option>
+                  </select>
+                </label>
+                <label>
+                  Streaming TV
+                  <select name="streamingTv" required>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No internet service">No internet service</option>
+                  </select>
+                </label>
+                <label>
+                  Streaming Movies
+                  <select name="streamingMovies" required>
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No internet service">No internet service</option>
+                  </select>
+                </label>
+                <label>
+                  Contract
+                  <select name="contract" required>
+                    <option value="Month-to-month">Month-to-month</option>
+                    <option value="One year">One year</option>
+                    <option value="Two year">Two year</option>
+                  </select>
+                </label>
+                <label>
+                  Paperless Billing
+                  <select name="paperlessBilling" required>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                  </select>
+                </label>
+                <label>
+                  Payment Method
+                  <select name="paymentMethod" required>
+                    <option value="Electronic check">Electronic check</option>
+                    <option value="Mailed check">Mailed check</option>
+                    <option value="Bank transfer (automatic)">
+                      Bank transfer (automatic)
+                    </option>
+                    <option value="Credit card (automatic)">
+                      Credit card (automatic)
+                    </option>
+                  </select>
+                </label>
+                <label>
+                  Monthly Charges
+                  <input
+                    type="number"
+                    name="monthlyCharges"
+                    step="0.01"
+                    placeholder="e.g., 79.99"
+                    required
+                  />
+                </label>
+                <label>
+                  Total Charges
+                  <input
+                    type="number"
+                    name="totalCharges"
+                    step="0.01"
+                    placeholder="e.g., 1899.50"
+                    required
+                  />
+                </label>
+              </div>
+              <button type="submit">Run Prediction</button>
+            </form>
+            <aside class="form-help">
+              <h3>Quick guide</h3>
+              <p>
+                Pick options that match a typical customer. If unsure, use the
+                default dropdowns and fill in tenure, monthly, and total charges.
+              </p>
+              <p>
+                The model uses these inputs to score churn likelihood based on
+                common telco patterns.
+              </p>
+            </aside>
+          </div>
+          <div id="result" class="result">
+            <p class="result__label">Prediction</p>
+            <p class="result__value">Waiting for input.</p>
+            <p class="result__detail">Connect to your API to begin.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
