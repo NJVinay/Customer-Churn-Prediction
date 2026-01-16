@@ -9,7 +9,7 @@ services:
       - key: MODEL_PATH
         value: backend/models/churn_model.joblib
 
-  - type: static
+  - type: static_site
     name: churn-ui
     buildCommand: ""
     staticPublishPath: frontend
