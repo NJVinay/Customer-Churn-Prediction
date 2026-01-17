@@ -1,7 +1,6 @@
 # Customer Churn Prediction
 
 **Live Demo:** https://customer-churn-prediction-3fij.onrender.com  
-**GitHub Repository**: https://github.com/NJVinay/Customer-Churn-Prediction
 
 End-to-end churn prediction project with an ensemble model, FastAPI backend, and a static frontend.
 
